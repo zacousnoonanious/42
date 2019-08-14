@@ -1,4 +1,4 @@
-name = libft.a
+NAME = libft.a
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 CFLAG = -Wall -WError -Wextra
