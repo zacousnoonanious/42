@@ -1,10 +1,22 @@
+name = libft.a
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
-CFLAG = -Wall -Wextra
+CFLAG = -Wall -WError -Wextra
 CC = gcc
-theProgram: ${OBJ}
+
+
+all: $(NAME)
+
+$(NAME): ${OBJ}
 	${CC} ${CFLAG} -o $@ ${OBJ}
 
-.PHONY: clean
+
 clean:
 	rm -f *.o
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: clean fclean all re
