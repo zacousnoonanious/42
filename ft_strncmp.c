@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainprogram.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znoonan <znoonan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 17:12:38 by znoonan           #+#    #+#             */
-/*   Updated: 2019/08/12 11:31:11 by znoonan          ###   ########.fr       */
+/*   Created: 2019/08/12 08:52:50 by znoonan           #+#    #+#             */
+/*   Updated: 2019/08/12 09:02:53 by znoonan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main()
+int     strncmp(const char *s1, const char *s2, size_t n)
 {
-	char *returned;
-	char arr1[10] = "stick";
-	char arr2[8] = "stick";
-	returned = ft_strstr(arr1, arr2);
-	//ft_memcmp
-	// printf("Function \033[0;34m %s \033[0;0m with parameters \033[0;31m '%s' \033[0;0m", 
-	// "ft_memcmp", ft_memcmp(arr1, arr2, 1));
-	printf("%s", returned);
+    size_t i;
+    i = 0;
+    if (n == 0)
+    {
+        return (0);
+    }
+    while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < n - 1)
+		i++;
+	return (s1[i] - s2[i]);
 }

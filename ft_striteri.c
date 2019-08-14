@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainprogram.c                                      :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znoonan <znoonan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 17:12:38 by znoonan           #+#    #+#             */
-/*   Updated: 2019/08/12 11:31:11 by znoonan          ###   ########.fr       */
+/*   Created: 2019/08/12 20:17:43 by znoonan           #+#    #+#             */
+/*   Updated: 2019/08/12 21:02:51 by znoonan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main()
+void    ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char *returned;
-	char arr1[10] = "stick";
-	char arr2[8] = "stick";
-	returned = ft_strstr(arr1, arr2);
-	//ft_memcmp
-	// printf("Function \033[0;34m %s \033[0;0m with parameters \033[0;31m '%s' \033[0;0m", 
-	// "ft_memcmp", ft_memcmp(arr1, arr2, 1));
-	printf("%s", returned);
+    int i;
+    i = 0;
+    if (s && f)
+        while (s[i])
+        {
+            f(i, &s[i]);
+            i++;
+        }
 }

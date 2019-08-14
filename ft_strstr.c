@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainprogram.c                                      :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znoonan <znoonan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 17:12:38 by znoonan           #+#    #+#             */
-/*   Updated: 2019/08/12 11:31:11 by znoonan          ###   ########.fr       */
+/*   Created: 2019/08/09 22:31:58 by znoonan           #+#    #+#             */
+/*   Updated: 2019/08/11 02:35:28 by znoonan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
-
-int	main()
+//s1 = haystack, s2 = needle
+char    *ft_strstr(char *haystack, char *needle)
 {
-	char *returned;
-	char arr1[10] = "stick";
-	char arr2[8] = "stick";
-	returned = ft_strstr(arr1, arr2);
-	//ft_memcmp
-	// printf("Function \033[0;34m %s \033[0;0m with parameters \033[0;31m '%s' \033[0;0m", 
-	// "ft_memcmp", ft_memcmp(arr1, arr2, 1));
-	printf("%s", returned);
+    int i;
+    int j;
+    i = 0;
+    j = 0;
+    while (haystack[i] != '\0')
+    {
+        while (needle[i] == haystack[i + j])
+        {
+            if (needle[j + 1] == '\0')
+            {
+                return (haystack + i);
+            }
+            j++;
+        }
+        i++;
+    }
+    return (NULL);
 }
